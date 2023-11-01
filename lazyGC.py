@@ -47,17 +47,17 @@ def create_emails(names_with_designation, domain_name, format_option):
     return emails
 
 def main():
-    company = input("Enter the company name for Google dork query: ")
-    domain = input(f"Enter the domain (e.g. company.com) for {company}: ")
+    company = input("Enter the company name: ")
+    domain = input(f"Enter the domain name (e.g. test.com) for {company}: ")
     output_directory = input("Enter the output directory: ")
 
     names_with_designation = gather_contacts(company)
 
     print("\nSelect email format:")
-    print("1. f.l@domain")
-    print("2. firstname.lastname@domain")
-    print("3. l.f@domain")
-    print("4. firstname.l@domain")
+    print("1. flast@domain.com")
+    print("2. firstname.lastname@domain.com")
+    print("3. lastf@domain.com")
+    print("4. firstnamel@domain.com")
     email_format = int(input("Enter choice (default is 1): ") or 1)
 
     emails = create_emails(names_with_designation, domain, email_format)
@@ -74,7 +74,7 @@ def main():
     print(f"\n{len(emails)} emails saved to: {output_file}")
     print(f"Names saved to: {names_file}")
     print(f"\nScript executed on {date_time}.")
-    print("End of script execution.")
+    print("<=================End of script execution=================>")
 
 if __name__ == "__main__":
     main()
