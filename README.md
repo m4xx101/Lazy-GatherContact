@@ -11,7 +11,7 @@ Before running the script, ensure you have the necessary packages installed:
 pip install selenium
 ```
 
-In addition, you need to have the appropriate WebDriver for Selenium to work with your browser. For Chrome, download the ChromeDriver from here.
+In addition, you need to have the appropriate WebDriver for Selenium to work with your browser. For Chrome, download the ChromeDriver from [here](https://sites.google.com/a/chromium.org/chromedriver/), Ensure you have ChromeDriver downloaded and in your system's PATH.
 
 ## Usage
 Run the script:
