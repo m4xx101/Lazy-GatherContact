@@ -16,9 +16,9 @@ In addition, you need to have the appropriate WebDriver for Selenium to work wit
 ## Usage
 Run the script:
 ```
-python3 improved-gathercontact.py
-Enter the company name for the Google dork query: EXAMPLE INC
-Enter the domain of the company (e.g., company.com):example.com
+python3 lazyGC.py
+Enter the company name: EXAMPLE INC
+Enter the domain name(e.g., company.com): example.com
 Specify the directory where you'd like to save the results: User/Profile/Downloads/
 ```
 
