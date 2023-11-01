@@ -40,41 +40,41 @@ def create_emails(names_with_designation, domain_name, format_option):
     for name_with_designation in names_with_designation:
         parts = name_with_designation.split()
         first_name = re.sub(r'[^a-zA-Z]', '', parts[0]).lower()
-        last_name = re.sub(r'[^a-zA-Z]', '', parts[1]).lower()
+        last_name = re.sub(r'[^a-zA-Z]', '', parts[1]).lower() if len(parts) > 1 else ''
 
         emails.append(format_options[format_option](first_name, last_name))
 
     return emails
 
 def main():
-    company = input("Enter the company name: ")
-    domain = input(f"Enter the domain name (e.g. test.com) for {company}: ")
-    output_directory = input("Enter the output directory: ")
+    company = input("Enter the company name for Google dork query: ")
+    domain = input(f"Enter the domain (e.g. company.com) for {company}: ")
+    output_directory = input("Enter the output directory (leave blank for current directory): ") or "."
 
     names_with_designation = gather_contacts(company)
 
     print("\nSelect email format:")
-    print("1. flast@domain.com")
+    print("1. flastname@domain.com")
     print("2. firstname.lastname@domain.com")
-    print("3. lastf@domain.com")
+    print("3. lastnamef@domain.com")
     print("4. firstnamel@domain.com")
     email_format = int(input("Enter choice (default is 1): ") or 1)
 
     emails = create_emails(names_with_designation, domain, email_format)
 
     date_time = time.strftime("%Y%m%d-%H%M%S")
-    output_file = os.path.join(output_directory, f"{domain}-{date_time}-emails.txt")
+    output_file = os.path.join(os.path.expanduser(output_directory), f"{domain}-{date_time}-emails.txt")
     with open(output_file, 'w') as f:
         f.write("\n".join(emails))
 
-    names_file = os.path.join(output_directory, f"{domain}-{date_time}-names.txt")
+    names_file = os.path.join(os.path.expanduser(output_directory), f"{domain}-{date_time}-names.txt")
     with open(names_file, 'w') as f:
         f.write("\n".join(names_with_designation))
 
     print(f"\n{len(emails)} emails saved to: {output_file}")
     print(f"Names saved to: {names_file}")
     print(f"\nScript executed on {date_time}.")
-    print("<=================End of script execution=================>")
+    print("End of script execution.")
 
 if __name__ == "__main__":
     main()
